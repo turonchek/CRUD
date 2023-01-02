@@ -5,14 +5,17 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { store } from './services/store';
 import { BrowserRouter } from 'react-router-dom';
+import { Container } from '@mui/system';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store} >
-        <App />
-      </Provider>
-    </BrowserRouter>
+    <Container>
+      <BrowserRouter>
+        <Provider store={store} >
+          <App />
+        </Provider>
+      </BrowserRouter>
+    </Container>
   </React.StrictMode>
 );
