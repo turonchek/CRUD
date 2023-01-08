@@ -14,6 +14,11 @@ const usersSlice = createSlice({
         getAllUsers: (state, action) => {
             state.users = action.payload
             state.loading = false
+        },
+        deleteUser: (state, action) => {
+            const deleteUser = state.users.filter((user) => user.id !== action.payload)
+            state.users = deleteUser;
+            state.loading = false
         }
     }
 })
@@ -39,10 +44,23 @@ export const getAllUsersAsync = () => {
     }
 }
 
+export const deleteUserAsync = (id) => {
+    return function (dispatch) {
+        axios
+            .delete(`${process.env.REACT_APP_API}/${id}`)
+            .then((resp) => {
+                console.log(resp);
+                dispatch(deleteUser());
+                dispatch(getAllUsers());
+            })
+            .catch((error) => console.log(error))
+    }
+}
+
 const { reducer, actions } = usersSlice;
 
 export default reducer;
 
-const { getAllUsers } = actions;
+export const { getAllUsers, deleteUser } = actions;
 
 export const selectUsers = (rootState) => rootState.users;
