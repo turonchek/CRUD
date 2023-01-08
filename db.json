@@ -1,39 +1,32 @@
 {
   "user": [
     {
-      "name": "Adam",
-      "address": "GB",
-      "email": "adam@gmail.com",
-      "contact":"0254796224",
-      "id":1
+      "name": "turonchek09@gmail.com",
+      "email": "turonchek09@gmail.com",
+      "contact": "1",
+      "address": "Вулиця Фабрично-Заводська 3а, кв.32",
+      "id": 13
     },
     {
-      "name": "Gabby",
-      "address": "USA",
-      "email": "gabby@gmail.com",
-      "contact":"0147851336",
-      "id":2
+      "name": "turonchek09@gmail.com",
+      "email": "turonchek09@gmail.com",
+      "contact": "5",
+      "address": "Вулиця Фабрично-Заводська 3а, кв.32",
+      "id": 14
     },
     {
-      "name": "Chris",
-      "address": "UA",
-      "email": "chris@gmail.com",
-      "contact":"0544832566",
-      "id":3
+      "name": "turonchek09@gmail.com",
+      "email": "turonchek09@gmail.com",
+      "contact": "7",
+      "address": "Вулиця Фабрично-Заводська 3а, кв.32",
+      "id": 15
     },
     {
-      "name": "George",
-      "address": "PL",
-      "email": "george@gmail.com",
-      "contact":"04776254632",
-      "id":4
-    },
-    {
-      "name": "John",
-      "address": "IT",
-      "email": "john@gmail.com",
-      "contact":"0475444698",
-      "id":5
+      "name": "d",
+      "email": "g",
+      "contact": "5",
+      "address": "2",
+      "id": 16
     }
   ]
 }
