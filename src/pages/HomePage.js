@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllUsersAsync, selectUsers, deleteUserAsync } from '../ducks/users';
 import { Button, ButtonGroup } from '@mui/material';
 import { Box } from '@mui/system';
+import { useNavigate } from 'react-router';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -36,6 +37,8 @@ export const HomePage = () => {
 
     const dispatch = useDispatch();
 
+    const navigate = useNavigate();
+
     const {users} = useSelector(selectUsers);
 
     useEffect(() => {
@@ -45,7 +48,14 @@ export const HomePage = () => {
     return (
         <>
         <Box>
-            <Button variant='contained' color="primary">Add user</Button>
+            <Button 
+                sx={{marginY:5}}
+                variant='contained' 
+                color="primary" 
+                onClick={() => navigate("/addUser")}
+            >
+                Add user
+            </Button>
         </Box>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 700 }} aria-label="customized table">
