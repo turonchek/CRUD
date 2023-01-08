@@ -1,15 +1,29 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
-import { useNavigate } from 'react-router';
-import { useDispatch } from 'react-redux';
-import { addUserAsync } from '../ducks/users';
+import { useNavigate, useParams } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import { getSingleUserAsync, selectUsers, updateUserAsync } from '../ducks/users';
 
-export const AddUserPage = () => {
+export const EditUserPage = () => {
+
+    
+    const {user} = useSelector(selectUsers);
+
+    useEffect(() => {
+        dispatch(getSingleUserAsync(id));
+    },[]);
+
+    useEffect(() => {
+        if(user){
+            setState({...user})
+        }
+    },[user])
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const {id} = useParams();
 
     const [state, setState] = useState({
         name:"",
@@ -33,7 +47,7 @@ export const AddUserPage = () => {
         if(!name || !address || !email || !contact) {
             setError(true)
         }else {
-            dispatch(addUserAsync(state))
+            dispatch(updateUserAsync(state,id))
             navigate("/")
             setError(false)
         }
@@ -47,11 +61,11 @@ export const AddUserPage = () => {
                 sx={{marginY:5}}
                 variant='contained' 
                 color="secondary" 
-                onClick={() => navigate("/")}
+                onClick={() => navigate(-1)}
             >
                 Go back
             </Button>
-            <h2>Add user</h2>
+            <h2>Edit user</h2>
             <Box
                 component="form"
                 sx={{
@@ -66,7 +80,7 @@ export const AddUserPage = () => {
                     type="text" 
                     label="Name" 
                     variant="standard" 
-                    value={name}
+                    value={name || ""}
                     name="name" 
                     onChange={handleInput}
                     />
@@ -76,7 +90,7 @@ export const AddUserPage = () => {
                     type="email" 
                     label="Email" 
                     variant="standard" 
-                    value={email}
+                    value={email || ""}
                     name="email" 
                     onChange={handleInput}
                     />
@@ -86,7 +100,7 @@ export const AddUserPage = () => {
                     type="number" 
                     label="Contact" 
                     variant="standard" 
-                    value={contact}
+                    value={contact || ""}
                     name="contact"
                     onChange={handleInput}
                     />
@@ -96,7 +110,7 @@ export const AddUserPage = () => {
                     type="text" 
                     label="Address" 
                     variant="standard" 
-                    value={address}
+                    value={address || ""}
                     name="address" 
                     onChange={handleInput}
                     />
@@ -106,7 +120,7 @@ export const AddUserPage = () => {
                     color="primary" 
                     type="submit"
                     >
-                        Submit
+                        Update
                     </Button>
             </Box>
         </>

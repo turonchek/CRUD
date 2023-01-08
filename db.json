@@ -1,32 +1,18 @@
 {
   "user": [
     {
-      "name": "turonchek09@gmail.com",
-      "email": "turonchek09@gmail.com",
-      "contact": "1",
-      "address": "Вулиця Фабрично-Заводська 3а, кв.32",
-      "id": 13
+      "name": "qwerty",
+      "email": "qwerty",
+      "contact": "2345678",
+      "address": "qwerty",
+      "id": 1
     },
     {
-      "name": "turonchek09@gmail.com",
-      "email": "turonchek09@gmail.com",
-      "contact": "5",
-      "address": "Вулиця Фабрично-Заводська 3а, кв.32",
-      "id": 14
-    },
-    {
-      "name": "turonchek09@gmail.com",
-      "email": "turonchek09@gmail.com",
-      "contact": "7",
-      "address": "Вулиця Фабрично-Заводська 3а, кв.32",
-      "id": 15
-    },
-    {
-      "name": "d",
-      "email": "g",
-      "contact": "5",
-      "address": "2",
-      "id": 16
+      "name": "][po",
+      "email": "][po",
+      "contact": "0987",
+      "address": "[po",
+      "id": 2
     }
   ]
 }

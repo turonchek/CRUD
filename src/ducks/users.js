@@ -22,7 +22,15 @@ const usersSlice = createSlice({
             state.loading = false
         },
         addUser: (state,action) => {
-            state.users.push(action.payload);
+            state.users.push(action.payload)
+            state.loading = false
+        },
+        getSingleUser: (state, action) => {
+            state.user=action.payload
+            state.loading = false
+        },
+        updateUser: (state, action) => {
+            state.user=action.payload
             state.loading = false
         }
     }
@@ -61,10 +69,32 @@ export const addUserAsync = (user) => {
     }
 }
 
+export const getSingleUserAsync = (id) => {
+    return function (dispatch) {
+        axios
+            .get(`${process.env.REACT_APP_API}/${id}`)
+            .then((resp) => {
+                dispatch(getSingleUser(resp.data));
+            })
+            .catch((error) => console.log(error))
+    }
+}
+
+export const updateUserAsync = (user, id) => {
+    return function (dispatch) {
+        axios
+            .put(`${process.env.REACT_APP_API}/${id}`, user)
+            .then((resp) => {
+                dispatch(updateUser());
+            })
+            .catch((error) => console.log(error))
+    }
+}
+
 const { reducer, actions } = usersSlice;
 
 export default reducer;
 
-export const { getAllUsers, deleteUser, addUser } = actions;
+export const { getAllUsers, deleteUser, addUser, getSingleUser, updateUser } = actions;
 
 export const selectUsers = (rootState) => rootState.users;

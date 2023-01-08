@@ -92,7 +92,12 @@ export const HomePage = () => {
                                     <Button  
                                         onClick={() => dispatch(deleteUserAsync(user.id))}
                                         color="secondary">Delete</Button>
-                                    <Button color="primary">Edit</Button>
+                                    <Button 
+                                        color="primary"
+                                        onClick={() => navigate(`/editUser/${user.id}`)}
+                                        >
+                                            Edit
+                                    </Button>
                                 </ButtonGroup>
                             </Box>
                         </StyledTableCell>
